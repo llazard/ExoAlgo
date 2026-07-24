@@ -1,16 +1,16 @@
 void main(String[] args) {
-    // Ici pas besoin de parser l'élément 1 car c'est
-    // deja une string quand on arrive dans le code
+    // Ici pas besoin de parser le premier élément car c'est déjà
+    // une String quand on arrive dans le code.
     String word = args[0];
-    // On veut être sur que le paramètre qu'on a mit en ligne
-    // de commande soit qu'une seulle lettre on reccupère donc
-    // uniquement le premier element de l'args
+    // On veut être sûr que le paramètre passé en ligne de commande
+    // ne soit qu'une seule lettre : on récupère donc uniquement le
+    // premier caractère (char) de la String args[1] avec charAt(0).
     char letter = args[1].charAt(0);
 
-    int x = numberOccurrence(word, letter);
+    int occurrenceCount = numberOccurrence(word, letter);
     boolean palindrome = isPalindrome(word);
     System.out.println("Nombre d'occurences ");
-    System.out.println(x);
+    System.out.println(occurrenceCount);
     System.out.println("Est palindrome");
     System.out.println(palindrome);
 }
@@ -18,19 +18,25 @@ void main(String[] args) {
 
 
 int numberOccurrence(String word, char letter) {
-    int compteur = 0;
+    int count = 0;
+    // On parcourt chaque caractère de la String avec un index i.
+    // word.charAt(i) renvoie le caractère (type char) à la position i.
     for (int i = 0; i < word.length(); i++) {
-        if (word.charAt(i) == letter) compteur++;
+        if (word.charAt(i) == letter) count++;
     }
-    return compteur;
+    return count;
 }
 static boolean isPalindrome(String word) {
-    int gauche = 0;
-    int droite = word.length() - 1;
-    while (gauche < droite) {
-        if (word.charAt(gauche) != word.charAt(droite)) return false;
-        gauche++;
-        droite--;
+    // Technique des deux pointeurs : on compare le caractère de gauche
+    // et celui de droite, puis on les rapproche vers le centre.
+    // Un mot est un palindrome si tous les couples de caractères
+    // symétriques sont identiques (ex : "radar").
+    int left = 0;
+    int right = word.length() - 1;
+    while (left < right) {
+        if (word.charAt(left) != word.charAt(right)) return false;
+        left++;
+        right--;
     }
     return true;
 }
