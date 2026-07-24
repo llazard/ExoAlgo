@@ -13,10 +13,8 @@ Ce n'est pas un hasard : ces deux variables n'appartiennent pas au même monde.
 | Contenu | une valeur brute, rien d'autre | des données **et** des comportements |
 | Manipulation | avec des opérateurs | en appelant ses méthodes, avec un point |
 
----
-Un String et un objet comme en POO il a donc des attribut et des methodes associées que l'on peut utiliser directement sur l'objet. 
-Une variable primitive est juste la données, on peut la manipuler avec des +/-/= mais pas lui appliquer des methodes 
----
+- Un `String` est un objet, comme en POO : il a donc des attributs et des méthodes associées, que l'on peut utiliser directement sur l'objet.
+- Une variable primitive est juste la donnée : on peut la manipuler avec des opérateurs (`+`, `-`, `=`...) mais pas lui appliquer de méthodes.
 
 ## La documentation officielle
 
