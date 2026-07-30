@@ -1,5 +1,6 @@
+package main;
 
-class Calculator {
+public class Calculator {
     void main(String[] args) {
 
         // Les arguments de la ligne de commande (args) sont toujours reçus sous forme
@@ -10,30 +11,38 @@ class Calculator {
 
         // On appelle la méthode addition() et on stocke le résultat dans une variable
         // pour pouvoir le réutiliser/l'afficher juste après.
-        double additionResult = addition(a, b);
+        int additionResult = addition(a, b);
         // Affichage du résultat. L'opérateur "+" ici concatène une String avec un
         // double : Java convertit automatiquement le double en sa représentation String.
         System.out.println("le resultat de l'addition est " + additionResult);
         System.out.println("le resultat de la soustraction est " + subtraction(a, b));
+        System.out.println("le resultat de la multiplication est " + multiplication(a, b));
         System.out.println("le resultat de la division est " + division(a, b));
         System.out.println("le resultat de la somme des chiffre de a a b est " + sumAtoB(a, b));
     }
 
     // "static" signifie que cette méthode appartient à la classe elle-même et n'a
-    // pas besoin d'une instance de Calculator pour être appelée (ex : Calculator.addition(...)).
-    static double addition(double a, double b) {
-        return a + b;
+    // pas besoin d'une instance de main.Calculator pour être appelée (ex : main.Calculator.addition(...)).
+    public static int addition(double a, double b) {
+        return (int) (a + b);
     }
 
-    static double subtraction(double a, double b) {
+    public static double subtraction(double a, double b) {
         return a - b;
     }
 
-    static double division(double a, double b) {
+    public static double multiplication(double a, double b) {
+        return a * b;
+    }
+
+    // Piège du typage : avec des int, 5 / 2 vaut 2 (division entière, la
+    // partie décimale est tronquée). Ici a et b sont des double, donc la
+    // division garde bien sa partie décimale (5.0 / 2 vaut 2.5).
+    public static double division(double a, double b) {
         return a / b;
     }
 
-    static double sumAtoB(double a, double b) {
+    public static double sumAtoB(double a, double b) {
         double sum = 0;
         // Math.min/Math.max permettent de gérer les deux ordres d'appel,
         // ex : sumAtoB(5, 2) se comporte comme sumAtoB(2, 5).
