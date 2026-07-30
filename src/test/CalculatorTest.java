@@ -91,7 +91,7 @@ class CalculatorTest {
     @Test
     void divBy0Test() {
         double result = Calculator.division(2, 0);
-        assertEquals("Infinity", String.valueOf(result));
+        assertEquals(Double.POSITIVE_INFINITY, result);
     }
 
     @Test
